@@ -1,9 +1,11 @@
+# 实验简介
+本实验以Qwen2.5-7B-Instruct模型和alpaca数据集为例, 展示使用MindSpore和MindSpeed-Core-MS进行模型预训练的流程。
 # 环境准备
 本实验使用的主要环境信息如下:
 
 | 依赖软件              | 版本     |
 |:------------------|:-------|
-| CANN              | 8.2RC2 |
+| CANN              | 8.2RC1 |
 | Python            | 3.10   |
 | MindSpore         | 2.7.1  |
 | MindSpeed-Core-MS | r0.4.0 |
