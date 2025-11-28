@@ -1,81 +1,76 @@
 <div align=center>
-  <h1>课程名称</h1>
-  <p><a href="./README.md">View English</a></p>
+  <h1>MindSpore Compatible Distributed Training: Principles and Practices</h1>
+  <p><a href="./README_ZH.md">查看中文</a></p>
 </div>
 
-（1-2句话点名项目核心价值）项目仓介绍。
+This course introduces the end-to-end development process based on the MindSpeed-Core-MS suite, focusing on scenarios 
+such as LLM pre-training, fine-tuning, and reinforcement learning. 
+It enables learners to understand the related concepts, features, and development workflows of MindSpeed-Core-MS, 
+equipping them with foundational capabilities for large model training across different scenarios.
+## 📢 News
 
-## 📢 最新消息
+- 2025-11-30 「Course Update」: Added chapters 1-5, including complete videos, courseware, and code examples. [View Details](xxxx)
 
-- 2025-10-21 「课程更新」：新增XXX课程，包含完整视频、课件及代码案例。（[查看详情](xxxx)）
-- 2025-10-18 「功能优化」：项目仓完成重构，查找课程资源更清晰，新增PR检查门禁，合入内容更规范。（[查看详情](xxx)）
-- 2025-10-10 「Bug修复」：修复xxxxxx问题，感谢@username的PR贡献。（[查看详情](xxxx)）
+[//]: # (- 2025-10-18 「Feature Optimization」: Project repository refactored, course resources easier to find, new PR)
 
-## 前置知识
+[//]: # (    check gates added for more standardized content integration. [View Details]&#40;xxx&#41;)
 
-在学习本门课程之前，您需要掌握：
+[//]: # (- 2025-10-10 「Bug Fix」: Fixed xxxxxx issue, thanks to @username for PR contribution. [View Details]&#40;xxx&#41;)
 
-- Python基础
-- Linux命令基础
-- Jupyter基础
-- Docker镜像使用
 
-您可以通过前置学习考试（*待上线*）进行自检。
+## Prerequisites
 
-## 环境准备
+This course is an intermediate-level course in MindSpore course series. It is recommended that readers have knowledge of Transformer architecture and single-machine model training before taking this course.
 
-为确保项目仓中实践代码可正常运行，推荐以下环境准备方式。更详细的环境准备指导详见[Wiki](https://github.com/mindspore-courses/competition/wiki/Set-Up-Development-Environment)。
 
-### 直接安装依赖
+## Environment Setup
 
-请先确保 Python 版本符合[课程要求](#版本维护)后，进入仓库根目录，执行：
+The Docker environment used in this course can be obtained from [dockerfiles](./dockerfiles/)
+Main dependencies are as follows:
 
-```bash
-pip install requirements.txt
-```
+| Dependency                                                                                    | Version   |
+|:----------------------------------------------------------------------------------------------|:-------|
+| [CANN](https://www.hiascend.com/developer/download/community/result?module=cann&cann=8.2.RC1) | 8.2RC1 |
+| Python                                                                                        | \>=3.9 |
+| [MindSpeed-Core-MS](https://gitcode.com/Ascend/MindSpeed-Core-MS/tree/r0.4.0)                 | r0.4.0 |
 
-### 使用Docker镜像（*待发布*）
 
-为方便开发者更加便捷地进行代码实践，节约环境准备的时间，我们提供了预装好的基础Dockerfile文件。课程的所有镜像可从[dockerfile](./dockerfile/)获取。本课程镜像文件信息如下，开发者可根据实际需求进行拉取：
+## Course Content
 
-镜像基础使用教程详见环境准备Wiki中的[Docker镜像使用](https://github.com/mindspore-courses/competition/wiki/Set-Up-Development-Environment)部分。
+| No. | Lesson                                                                                                            | Description                                                                                           | Learning Resource                                              |
+|:---|:------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|:--------------------------------------------------|
+| 1  | Overview of MindSpeed-Core-MS: MindSpore-Compatible LLM Training Suite                                            | Introduces the architecture and capabilities of the MindSpeed-Core-MS                                 | [PPT](./Chapter1) · [手册](./Chapter1) · [视频](跳转链接) |
+| 2  | Pre-training Practice Based on MindSpeed-Core-MS                                                                  | Covers the process and practice of large model pre-training using MindSpeed-Core-MS                   | [PPT](./Chapter2) · [手册](./Chapter2) · [视频](跳转链接) |
+| 3  | Principle and Practice of Fine-tuning Based on MindSpeed-Core-MS                                                  | Explores the process and practice of fine-tuning using MindSpeed-Core-MS                              | [PPT](./Chapter3) · [手册](./Chapter3) · [视频](跳转链接) |
+| 4  | Principle and Practice of Reinforcement Learning Based on MindSpeed-Core-MS                                                                                    | Discusses the process and practice of reinforcement learning using MindSpeed-Core-MS                  | [PPT](./Chapter4) · [手册](./Chapter4) · [视频](跳转链接) |
+| 5  | Introduction and Practice of Memory & Performance Tuning                                                                                                    | Introduces the methodologies and practical applications of memory optimization and performance tuning | [PPT](./Chapter5) · [手册](./Chapter5) · [视频](跳转链接) |
 
-## 课程内容
+## Version Management
 
-| 序号 | 课节    | 简介             | 课程资源                  | 能力认证入口 |
-| :-- | :------ | :--------------- | :----------------------- | :---------- |
-| 1   | xxx     | xxx              | [PPT](跳转链接) · [代码](跳转链接) · [视频](跳转链接) · [云沙箱实验](跳转链接) · [学习路径](跳转链接) |  |
-| 2   | xxx     | xxx              | [PPT](跳转链接) · [代码](跳转链接) · [视频](跳转链接) · [云沙箱实验](跳转链接) · [学习路径](跳转链接) | [初级认证入口](xxxx) |
-| 3   | xxx     | xxx              | [PPT](跳转链接) · [代码](跳转链接) · [视频](跳转链接) · [云沙箱实验](跳转链接) · [学习路径](跳转链接) |  |
-| 4   | xxx     | xxx              | [PPT](跳转链接) · [代码](跳转链接) · [视频](跳转链接) · [云沙箱实验](跳转链接) · [学习路径](跳转链接) | [中级认证入口](xxxx) |
+This repository is updated in sync with [MindSpore](https://www.mindspore.cn/install) and [MindSpeed-Core-MS](https://gitcode.com/Ascend/MindSpeed-Core-MS/tree/master), New releases of this repository are published approximately every **six months**.
 
-## 版本维护
+| Branch/Version  | Python | MindSpore | MindSpeed-Core-MS |
+| :----- |:-------|:----------|:------------------|
+| master | \>=3.9 | 2.7.1     | r0.4.0            |
 
-项目随昇思MindSpore及昇思MindSpore NLP套件迭代同步发布版本，本项目仓每**半年**进行版本发布。
 
-| 版本名  | Python | MindSpore | MindSpore NLP |
-| :----- | :----- |:------ |:------ |
-| master | xxx    | xxx    | xxx    |
-| r1.0   | xxx    | xxx    | xxx    |
+## FAQ
 
-## 常见问题（FAQ）
+See the [FAQ](https://github.com/mindspore-courses/MindSpore-Compatible-Distributed-Training-Principles-and-Practices/wiki/FAQ) in the Wiki。
 
-详见Wiki中[FAQ](https://github.com/mindspore-courses/competition/wiki/Developer-FAQ)。
+## Contributing
 
-## 贡献与反馈
+We welcome bug reports, suggestions, and code contributions via [Issue](https://github.com/mindspore-courses/MindSpore-Compatible-Distributed-Training-Principles-and-Practices/issues) or [PR](https://github.com/mindspore-courses/MindSpore-Compatible-Distributed-Training-Principles-and-Practices/pulls)
+. Please follow our submission guidelines — all PRs are reviewed and merged by @username. Your contributions make the project stronger!
 
-欢迎各位开发者通过 [Issue](https://github.com/mindspore-courses/competition/issues) 提交建议或 bug 反馈，也可直接发起 [PR](https://github.com/mindspore-courses/competition/pulls) 进行Bug修复或代码贡献（提交前请参考提交规范，由Committer @username 完成评审合入），你的每一份参与都能让本项目更加完善。
+**Guidelines:** [Issue & PR Submission](https://github.com/mindspore-courses/MindSpore-Compatible-Distributed-Training-Principles-and-Practices/wiki/%E6%8F%90%E4%BA%A4%E8%AF%B4%E6%98%8E)
 
-### 提交规范
+### Contributors
 
-详见WIKI：[Issue与PR提交规范](https://github.com/mindspore-courses/competition/wiki/Contributing-Guidelines)
-
-### 贡献者展示
-
-向本项目的贡献者们致以最诚挚的感谢！
+Special thanks to all contributors for improving this project!
 
 <div align=center style="margin-top: 30px;">
-  <a href="https://github.com/mindspore-courses/competitions/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=mindspore-courses/competitions" />
+  <a href="https://github.com/mindspore-courses/MindSpore-Compatible-Distributed-Training-Principles-and-Practices/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=mindspore-courses/MindSpore-Compatible-Distributed-Training-Principles-and-Practices" />
   </a>
 </div>
