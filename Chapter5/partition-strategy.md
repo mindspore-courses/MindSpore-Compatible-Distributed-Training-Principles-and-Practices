@@ -1,70 +1,6 @@
-# 环境准备
-本实验使用的主要环境信息如下:
+## 本实验在Qwen2.5-7B-Instruct预训练的实验的基础上增加模型切分策略调优部分，环境配置，模型下载，数据集下载和预处理等步骤参考[pretrain.md](../Chapter1/pretrain.md)
 
-| 依赖软件              | 版本     |
-|:------------------|:-------|
-| CANN              | 8.2RC1 |
-| Python            | 3.10   |
-| MindSpore         | 2.7.1  |
-| MindSpeed-Core-MS | r0.4.0 |
-
-[dockerfile_unified](./dockerfiles/dockfile_unified)中打入了**CANN**与**Python**, 开发者可基于此镜像或任何包含指定**CANN**和**Python**版本的环境中完成实验。
-其他依赖安装参考以下步骤。
-
-## MindSpore安装
-
-安装MindSpore 2.7.1版本，安装教程请参考[MindSpore快速安装](https://www.mindspore.cn/install)。
-
-执行以下命令
-
-```bash
-
-python -c "import mindspore;mindspore.set_device('Ascend');mindspore.run_check()"
-
-```
-如果输出
-
-```text
-
-MindSpore version: 版本号
-The result of multiplication calculation is correct, MindSpore has been installed on platform [Ascend] successfully!
-
-```
-说明MindSpore安装成功。
-
-## MindSpeed-Core-MS及相关依赖安装
-```bash
-# 安装MindSpeed-Core-MS转换工具
-git clone https://gitcode.com/Ascend/MindSpeed-Core-MS.git -b r0.4.0
-
-# 使用MindSpeed-Core-MS内部脚本提供配置环境
-cd MindSpeed-Core-MS
-pip install -r requirements.txt
-source auto_convert.sh llm
-
-```
-# 使用MindSpeed-LLM预训练Qwen2.5-7B-Instruct模型切分策略调优流程
-## 1. 模型下载
-```bash
-cd MindSpeed-LLM
-pip install modelscope
-modelscope download --model Qwen/Qwen2.5-7B-Instruct --local_dir ./model_from_hf/qwen2.5_7b_hf
-```
-
-## 2.数据集下载
-```bash
-mkdir dataset && cd dataset
-wget https://modelscope.cn/datasets/angelala00/tatsu-lab-alpaca/resolve/master/train-00000-of-00001-a09b74b3ef9c3b56.parquet
-cd ..
-```
-
-## 3. 数据预处理
-
-执行命令
-```bash
-bash examples/mindspore/qwen25/data_convert_qwen25_pretrain.sh
-```
-## 4. 权重转换
+##  权重转换
 在权重转换脚本`examples/mindspore/qwen25/ckpt_convert_qwen25_hf2mcore.sh`中配置tp并行大小`--target-tensor-parallel-size`，pp并行大小`--target-pipeline-parallel-size`，模型加载路径`--load-dir`，模型保存路径`--save-dir`，模型tokenizer路径`--tokenizer-model`。   
 - TP2PP4参考脚本如下：
 ```bash
@@ -140,8 +76,8 @@ python convert_ckpt.py \
 bash examples/mindspore/qwen25/ckpt_convert_qwen25_hf2mcore.sh
 ```
 
-## 5.预训练
-在与训练脚本`examples/mindspore/qwen25/pretrain_qwen25_7b_32k_ms.sh`中配置模型加载路径`CKPT_LOAD_DIR`，模型保存路径`CKPT_SAVE_DIR`，数据集路径`DATA_PATH`，tokenizer路径`TOKENIZER_PATH`
+## 预训练
+在预训练脚本`examples/mindspore/qwen25/pretrain_qwen25_7b_32k_ms.sh`中配置模型加载路径`CKPT_LOAD_DIR`，模型保存路径`CKPT_SAVE_DIR`，数据集路径`DATA_PATH`，tokenizer路径`TOKENIZER_PATH`
 
 - TP2PP4参考脚本如下：
 ```bash
@@ -273,7 +209,7 @@ bash examples/mindspore/qwen25/pretrain_qwen25_7b_32k_ms.sh
 
 运行日志保存在`MindSpeed-LLM/worker_7.log`中
 
-## 6. 实验结果
+##  实验结果
 | 配置 | 吞吐量 | 峰值显存 | 主要影响因素 |
 | :--- | :--- | :--- | :--- |
 | TP2PP4 | 119 | 35366 | 模型被切成4段，每段之间的气泡比例更大，缺乏张量并行，导致计算不均衡，拖慢速度。 |
