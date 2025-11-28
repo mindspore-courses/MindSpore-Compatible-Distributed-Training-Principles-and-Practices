@@ -1,3 +1,5 @@
+# 实验简介
+本实验以Qwen2.5-VL-7B-Instruct模型的Lora微调为例，展示使用MindSpeed-Core-MS进行微调训练的整体流程
 # 环境准备
 本实验使用的主要环境信息如下:
 

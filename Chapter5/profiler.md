@@ -1,5 +1,6 @@
-## 本实验在Qwen2.5-7B-Instruct预训练的实验的基础上增加profiler性能调优部分，环境配置，模型下载，数据集下载和预处理，权重转换等步骤参考[pretrain.md](../Chapter1/pretrain.md)
-## 预训练
+# 实验简介
+本实验在Qwen2.5-7B-Instruct预训练的实验的基础上增加profiler性能调优部分，环境配置，模型下载，数据集下载和预处理，权重转换等步骤参考[pretrain.md](../Chapter1/pretrain.md)
+## profiler使能预训练
 在预训练脚本`examples/mindspore/qwen25/pretrain_qwen25_7b_32k_ms.sh`配置中添加profiler相关参数
 
 
