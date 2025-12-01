@@ -6,7 +6,7 @@
 | CANN              | 8.2RC1 |
 | Python            | 3.10   |
 | MindSpore         | 2.7.1  |
-| MindSpeed-Core-MS | r0.4.0 |
+| MindSpeed-Core-MS | r0.3.0 |
 
 [dockerfile_unified](./dockerfiles/dockfile_unified)中打入了**CANN**与**Python**, 开发者可基于此镜像或任何包含指定**CANN**和**Python**版本的环境中完成实验。
 其他依赖安装参考以下步骤。
@@ -59,7 +59,7 @@ cd MindSpeed-RL
 1. 在**数据预处理**的数据集下载部分，服务器Hugging Face访问受限时，需要手动下载数据集上传到服务器，仅下载红框部分即可。<br>
 ![Dataset download](./image/dataset.png)
 
-2. 在**数据预处理**的数据预处理配置文件部分，红框内的路径需要使用绝对路径而非相对路径。<br>![Dataset yaml set](./image/datayaml.png)<br>
+2. 在**数据预处理**的数据预处理配置文件部分，红框内的路径为了避免路径找不到, 改成用绝对路径,不要用相对路径。<br>![Dataset yaml set](./image/datayaml.png)<br>
 此外，tokenizer_name_or_path属性需要自行从Hugging Face下载[qwen2.5 7b](https://huggingface.co/Qwen/Qwen2.5-7B/tree/main)模型。<br>
 ![qwen2.5 7b](./image/qwen.png)
 
@@ -91,7 +91,7 @@ actor_config:
   initial_loss_scale: 4096
   finetune: true
   # 请使用绝对路径
-  load: /mnt/disk2/yzy/MindSpeed-Core-MS/MindSpeed-RL/models/Qwen2.5-7B-Mcore
+  load: /xxx/MindSpeed-Core-MS/MindSpeed-RL/models/Qwen2.5-7B-Mcore
   save: ./ckpt
   no_load_optim: true
   no_load_rng: true
@@ -103,7 +103,7 @@ ref_config:
   pipeline_model_parallel_size: 1
   micro_batch_size: 1
   # 请使用绝对路径
-  load: /mnt/disk2/yzy/MindSpeed-Core-MS/MindSpeed-RL/models/Qwen2.5-7B-Mcore-tp2
+  load: /xxx/MindSpeed-Core-MS/MindSpeed-RL/models/Qwen2.5-7B-Mcore-tp2
   no_load_optim: true
   no_load_rng: true
 
@@ -114,7 +114,7 @@ reward_config:
   pipeline_model_parallel_size: 1
   micro_batch_size: 1
   # 请使用绝对路径
-  load: /mnt/disk2/yzy/MindSpeed-Core-MS/MindSpeed-RL/models/Qwen2.5-7B-Mcore-tp2
+  load: /xxx/MindSpeed-Core-MS/MindSpeed-RL/models/Qwen2.5-7B-Mcore-tp2
   no_load_optim: true
   no_load_rng: true
 ```
